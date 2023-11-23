@@ -4,17 +4,18 @@ A module for converting cloudwatch logs into metrics (event count) based on patt
 
 application error logs in cloudwatch and alarming on them based on thresholds.
 
-- [Example](#example)
-- [Requirements](#requirements)
-- [Providers](#providers)
-- [Inputs](#inputs)
-- [Outputs](#outputs)
+- [AWS Application Errors rate](#aws-application-errors-rate)
+  - [Example](#example)
+  - [Requirements](#requirements)
+  - [Providers](#providers)
+  - [Inputs](#inputs)
+  - [Outputs](#outputs)
 
 ## Example
 
 ```tf
 module "application_error_alarm" {
-    source             = "github.com/Jareechang/tf-modules//cloudwatch/alarms/application-log-errors?ref=v1.0.12"
+    source             = "github.com/moabukar/tf-mods//cloudwatch/alarms/application-log-errors?ref=v1.0.12"
     evaluation_periods = "2"
     threshold          = "10"
     arn_suffix         = aws_lb.arn_suffix 

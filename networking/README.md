@@ -2,9 +2,12 @@
 
 A basic terraform module for setting up a VPC on AWS.
 
+- [Networking](#networking)
 - [Caveats](#caveats)
+  - [Nat Gateway](#nat-gateway)
+  - [Port number (80 only)](#port-number-80-only)
+- [TODO](#todo)
 - [Example](#example)
-- [Todo](#todo)
 - [Requirements](#requirements)
 - [Providers](#providers)
 - [Inputs](#inputs)
@@ -38,7 +41,7 @@ TODO: To be addressed (wip)
 ```tf
 #### Networking (subnets, igw, nat gw, rt etc)
 module "networking" {
-    source = "github.com/Jareechang/tf-modules//networking?ref=v1.0.0"
+    source = "github.com/moabukar/tf-mods//networking?ref=v1.0.0"
     env = var.env
     project_id = var.project_id
     subnet_public_cidrblock = [
