@@ -1,5 +1,6 @@
 # Terraform modules
 
+
 Some reusable TF modules to use for testing.
 
 ### Modules 
@@ -19,7 +20,7 @@ Some reusable TF modules to use for testing.
 **Publish tags:**
 ```sh
 git tag -a "v1.0.1" -m "First release of tf modules"
-git push origin master --follow-tags
+git push origin main --follow-tags
 ```
 **Usage:**
 
