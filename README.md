@@ -1,7 +1,6 @@
 # Terraform modules
 
-
-Some reusable TF modules to use for testing.
+Useful reusable TF modules to use for testing (AWS Core Services).
 
 ### Modules 
 
