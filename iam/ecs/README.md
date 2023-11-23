@@ -4,19 +4,19 @@ IAM roles & policies relating to ECS task and execution roles.
 
 Both are optionally created with a boolean parameter provided to the module. 
 
-- [Example](#example)
-- [Todo](#todo)
-- [Requirements](#requirements)
-- [Providers](#providers)
-- [Inputs](#inputs)
-- [Outputs](#outputs)
+- [IAM: ECR](#iam-ecr)
+  - [Example](#example)
+  - [Requirements](#requirements)
+  - [Providers](#providers)
+  - [Inputs](#inputs)
+  - [Outputs](#outputs)
 
 ## Example
 
 ```tf
 ## ECS Execution and Task roles
 module "ecs_roles" {
-    source                    = "github.com/Jareechang/tf-modules//iam/ecs?ref=v1.0.7"
+    source                    = "github.com/moabukar/tf-mods//iam/ecs?ref=v1.0.7"
     create_ecs_execution_role = true
     create_ecs_task_role      = true
 

@@ -4,8 +4,8 @@ A basic terraform module for setting up Application load balancers and target gr
 
 By default, http listener are created to forward to target group but https can be supported via `enable_https` (see below for more options).
 
+- [Application LB \& Target Group](#application-lb--target-group)
 - [Example](#example)
-- [Todo](#todo)
 - [Requirements](#requirements)
 - [Providers](#providers)
 - [Inputs](#inputs)
@@ -16,7 +16,7 @@ By default, http listener are created to forward to target group but https can b
 ```tf
 #### VPC 
 module "networking" {
-    source = "github.com/Jareechang/tf-modules//networking?ref=v1.0.0"
+    source = "github.com/moabukar/tf-mods//networking?ref=v1.0.0"
     env = var.env
     project_id = var.project_id
     subnet_public_cidrblock = [
@@ -32,7 +32,7 @@ module "networking" {
 
 #### Target group 
 module "ecs_tg" {
-    source              = "github.com/Jareechang/tf-modules//alb?ref=v1.0.2"
+    source              = "github.com/moabukar/tf-mods//alb?ref=v1.0.2"
     create_target_group = true
     port                = 80
     protocol            = "HTTP"
@@ -42,7 +42,7 @@ module "ecs_tg" {
 
 #### ALB 
 module "alb" {
-    source              = "github.com/Jareechang/tf-modules//alb?ref=v1.0.2"
+    source              = "github.com/moabukar/tf-mods//alb?ref=v1.0.2"
     create_alb         = true
     enable_https       = false
     internal           = false

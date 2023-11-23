@@ -2,17 +2,18 @@
 
 A module for handling ALB http error rate (http 5xx target / request count).
 
-- [Example](#example)
-- [Requirements](#requirements)
-- [Providers](#providers)
-- [Inputs](#inputs)
-- [Outputs](#outputs)
+- [AWS Applicaiton load balancer - Http 5xx alarm](#aws-applicaiton-load-balancer---http-5xx-alarm)
+  - [Example](#example)
+  - [Requirements](#requirements)
+  - [Providers](#providers)
+  - [Inputs](#inputs)
+  - [Outputs](#outputs)
 
 ## Example
 
 ```tf
 module "http_error_alarm" {
-    source             = "github.com/Jareechang/tf-modules//cloudwatch/alarms/alb-http-errors?ref=v1.0.5"
+    source             = "github.com/moabukar/tf-mods//cloudwatch/alarms/alb-http-errors?ref=v1.0.5"
     evaluation_preiods = "4"
     threshold          = "25"
     arn_suffix         = aws_lb.arn_suffix 

@@ -4,18 +4,19 @@ IAM roles & policies relating to managing ECR.
 
 Optionally, an CI/CD IAM user can be generated to manage ECR (and ECS).
 
-- [Example](#example)
-- [Requirements](#requirements)
-- [Providers](#providers)
-- [Inputs](#inputs)
-- [Outputs](#outputs)
+- [IAM: ECR](#iam-ecr)
+  - [Example](#example)
+  - [Requirements](#requirements)
+  - [Providers](#providers)
+  - [Inputs](#inputs)
+  - [Outputs](#outputs)
 
 ## Example
 
 ```tf
 ## CI/CD user role for managing pipeline for AWS ECR resources
 module "ecr_ecs_ci_user" {
-    source            = "github.com/Jareechang/tf-modules//iam/ecr?ref=v1.0.1"
+    source            = "github.com/moabukar/tf-mods//iam/ecr?ref=v1.0.1"
     env               = var.env
     project_id        = var.project_id
     create_ci_user    = true
