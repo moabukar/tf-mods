@@ -1,20 +1,47 @@
-server {
-  listen 8080;
-  listen [::]:8080;
+variable "aws_vpc" {
+  type = object({
+    id = string
+  })
+}
 
-  root /usr/share/nginx/html;
-  index index.html;
+variable "aws_lb" {
+  type = object({
+    arn = string
+  })
+}
 
-  location / {
-    try_files $uri $uri/ /index.html;
-  }
+variable "aws_lb_target_group" {
+  type = object({
+    name        = string
+    port        = number
+    protocol    = string
+    target_type = string
+    tags        = map(string)
 
-  location /api {
-    proxy_pass http://service.api-gateway;
-    proxy_http_version 1.1;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "Upgrade";
-    proxy_set_header Host $host;
-    proxy_cache_bypass $http_upgrade;
-  }
+    health_check = object({
+      protocol            = string
+      interval            = number
+      path                = string
+      healthy_threshold   = number
+      unhealthy_threshold = number
+      timeout             = number
+      matcher             = string
+    })
+  })
+}
+
+variable "aws_security_group_rule" {
+  type = object({
+    security_group_id = string
+
+    inbound = list(object({
+      description = string
+      cidr_blocks = list(string)
+    }))
+
+    outbound = list(object({
+      description = string
+      cidr_blocks = list(string)
+    }))
+  })
 }
